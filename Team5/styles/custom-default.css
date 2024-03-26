@@ -1,0 +1,280 @@
+@charset "utf-8";
+
+/* 
+
+Class: WEBSITE DESIGN - 420-WB4-AB
+Assignment: Final Project
+
+Team 4
+    Craig Collins (1038789)
+    James Fallouh (6171620)
+    SeyedehFatemeh Fekribaygi (6284424)
+
+    Current Date: TBD
+    Filename: Custom.CSS
+
+    Purpose: This is the custom.css code.
+*/
+.highlight {
+    background-color: yellow;
+    color: #000;
+  }
+/* ---------------------- footer ---------------------- */
+.footer .container{
+display: flex;
+justify-content: space-between;
+}
+.footer-collapse{
+    justify-content: center;
+}
+.btn-primary{
+    float:right;
+    margin: 0 8% 0 0;
+}
+.dropdown-menu li a:hover{
+    color: darkgray;
+    background-color: darkblue;
+    text-decoration: underline;
+}
+.navbar a:hover{
+    color: darkgray;
+    background-color: darkblue;
+    text-decoration: underline;
+}
+
+
+
+/* ---------------------------------------------------- */
+/* ---------------------- header ---------------------- */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+header h1{
+    text-align: center;
+    font-family: serif,'Cambria', 'Cochin', Georgia, Times, 'Times New Roman';
+}
+main h3{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+main p {
+    text-align: left;
+}
+
+.container-fluid {
+    margin: 0 2rem 0 2rem;
+}
+    /* ---------------------------------------------------- */
+/* -----------------main------------------------------- */
+    #home-main{
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+        
+    }
+    body{
+        background-color: rgb(251, 248, 248);
+        animation: over-and-back 10s alternate 1003;
+        animation-delay: 2s;
+    }
+    @keyframes over-and-back {
+        0.1% { background-color: rgb(211, 211, 211); }
+        /*50% { background-color: rgb(127, 127, 158); }*/
+        /*100% { background-color: rgb(139, 119, 122); }*/
+
+      
+    }
+
+    /*body img:active{
+        filter: saturate(5);
+    }*/
+    img {
+        /* Apply transition for smooth scaling */
+        /*transition: transform 3s ease;*/
+        /* Apply transition for smooth scaling and drop shadow */
+    transition: transform 4s ease, filter 4s ease;
+
+    }
+    img:hover {
+        transform: scale(1.02, 1.02);
+        filter: drop-shadow(7px 7px 0 #999);
+    }
+
+    /*#home-main section{
+        background-color: rgb(220, 245, 245);
+    }*/
+    .First-row-text-section{
+        display: block;
+    }
+    .First-row-text-section a{
+        float: right;
+        margin:0 3rem 0 0;
+
+    }
+    .main-header{
+        text-align: left;
+        height: 5rem;
+        align-content: center; 
+    }
+
+
+    p:hover,h1:hover,h2:hover,h3:hover{
+        font-weight: bold;
+        color: blue;
+    }
+    .main-header h2{
+        margin: 1.5rem 0rem 1.5rem 3rem ;
+        display:inline-block;
+        font-family: serif;
+        
+    }
+    .main-header a {
+        text-decoration: none;
+        
+    }
+    .main-header h2:hover{
+    color: darkgray;
+    background-color: darkblue;
+    text-decoration: underline;
+    }
+    #blog-row,#service-row,#portfolio-row,#first-row{
+        display: flex;
+        gap:2rem;
+        justify-content: center;
+        flex-wrap: wrap;
+          
+    }
+    .home-main-service{
+        height: 300px;
+
+        width: 300px;
+        min-width: 10px;
+        min-height: 10px;
+    }
+
+    .home-main-section{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        justify-content: center;
+        text-align: center;
+        
+    }
+    .home-main-section a:hover{
+        color: darkgray;
+    background-color: darkblue;
+    text-decoration: underline;
+    display: inline-block;
+    }
+    .home-main-image{
+        height: 400px;
+        width: 400px;
+        min-width: 10px;
+        min-height: 10px;
+    }
+   .home-main-blogim{
+    height: 500px;
+        width: 500px;
+        min-width: 10px;
+        min-height: 10px;
+   }
+   .home-main-container{
+    margin: 3rem;
+   }
+
+    /* ---------------------------------------------------- */
+        /* ------------------------- portfolio --------------------------- */
+    /*#portfolio-main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 3rem;
+        margin: 3rem;
+    
+    }*/
+
+    .portfolio-grid-section a{
+        float: right;
+        margin: 0 3rem 0 0;
+    }
+   
+    .portfolio-grid-section img{
+        max-height: 300px;
+        max-width : 300px;
+    
+    }
+    
+    .portfolio-grid-section{
+        text-align: left;
+       /* display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;*/    
+    }
+    .portfolio-grid-section h2{
+        font-family:  serif,'Times New Roman', Times;
+    }
+/* ------------------------- programming --------------------------- */
+   .pro-main-section{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem; 
+    
+}
+.pro-first-sec a{
+    float: right;
+    margin:0 3rem 0 0;
+}
+.pro-first-sec{
+    display: block;
+    float: left;
+}
+
+
+.prog-main img{
+    max-height: 500px;
+    max-width: 500px;
+        min-width: 300px;
+        min-height: 300px;
+        padding:1rem;     
+}
+
+/* ------------------Web development----------------------------- */
+.table-webdevelopment{
+    margin: 0 auto;
+    font-size: xx-large;
+    width: 60%;
+    height: 100%;
+    text-align: left;
+    margin-bottom: 5rem;
+}
+
+.table-webdevelopment td{
+    text-align: center;
+    padding: 2rem;
+}
+
+.table-webdevelopment tr:first-child{
+    border-bottom: 2px dashed grey;
+}
+
+.table-webdevelopment td:first-child{
+    border-right: 2px dashed grey;
+}
+.webdevelopment-table-title{
+    margin: 3rem auto;
+    font-family: serif;
+}
+
+.web-btn-container{
+    margin-top: 3rem;
+}
+
+/* ---------------------------------------------------- */
+/* ------------------FAQ----------------------------- */
+.accordion
+{
+    margin: 5rem;
+}
+

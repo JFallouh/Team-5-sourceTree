@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!-- 
+Class: WEBSITE DESIGN - 420-WB4-AB
+Assignment: Final Project
+
+Team 4
+    Craig Collins (1038789)
+    James Fallouh (6171620)
+    SeyedehFatemeh Fekribaygi (6284424)
+
+    Current Date: TBD
+    Filename: index.html
+
+    Purpose: This a website homepage.
+-->
+
+<html lang="en">
+
+<head>
+  <!-- Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="bootstrap template">
+
+  <!-- Favicon -->
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../styles/custom.css">
+
+  <!-- Custom SCSS -->
+  <link rel="stylesheet" href="styles/custom.css">
+
+  <title lang="en">Portfolio </title>
+  <!--<title lang="en">Bootstrap Template</title>-->
+
+
+</head>
+
+<body>
+
+  <!-- bootstrap header / navigation bar -->
+  <nav class="navbar navbar-expand-lg bg-primary bg-gradient text-white">
+    <div class="container-fluid">
+      <img class="navbar-brand rounded rounded-4" alt="Awesome code crafter logo" src="../../Vista-Logos-Blue/logo-png.png" height="100" width="100">
+      <!--  <a class="navbar-brand" href="#">Navbar</a>   -->
+      
+        <!--<button class="btn  btn-secondary " type="submit">Search</button>-->
+      </form>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- HOME PAGE -->
+          <li class="nav-item ">
+            <a class="nav-link active text-white" aria-current="page" href="../../index-en.html">Home</a>
+          </li>
+
+          <!-- Service Page-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="services/services.html" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu bg-primary bg-gradient text-white">
+              <li><a class="dropdown-item text-white" href="services/programming.html">Programming</a>
+              </li>
+              <li><a class="dropdown-item text-white" href="services/web-development.html">Web
+                  Development</a></li>
+              <!-- <li><hr class="dropdown-divider"></li>-->
+              <li><a class="dropdown-item text-white" href="services/databases.html">Databases</a></li>
+              <li><a class="dropdown-item text-white" href="services/website-design.html">Website
+                  Design</a></li>
+            </ul>
+          </li>
+          <!-- portfolio-->
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page"
+              href="portfolio.html">Portfolio</a>
+          </li>
+          <!--Blog-->
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="blog.html">Blog</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="about-us/about-us.html" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              About Us
+            </a>
+            <ul class="dropdown-menu bg-primary bg-gradient ">
+              <li><a class="dropdown-item text-white" href="about-us/craig-collins.html">Craig
+                  Collins</a></li>
+              <li><a class="dropdown-item text-white" href="about-us/james-fallouh.html">James
+                  Fallouh</a></li>
+              <!-- <li><hr class="dropdown-divider"></li> -->
+              <li><a class="dropdown-item text-white"
+                  href="about-us/fatemeh-fekribaygi.html">SeyedehFatemeh Fekribaygi</a></li>
+            </ul>
+          </li>
+          <!--Contact Us-->
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="contact-us.html">Contact
+              Us</a>
+          </li>
+
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <a href="../francais/faq.html" class="text-white">Français</a>
+          </form>
+        </div>
+    </div>
+  </nav>
+  <!-- navbar links -->
+
+  <!-- bootstrap jumbotron -->
+
+  <!-- header and hero image -->
+  <header>
+    <h1 class="text-white">FAQ</h1>
+  </header>
+ <!-- main-->
+ 
+ <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        1. What services does you offer?
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>At Awsome Code Crafter Hub, we offer a range of services including database design, web development, and UI/UX design. Whether you need a robust database solution, a visually appealing website, or a seamless user experience, we have you covered.</strong> 
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        2. What industries do you cater to?
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>Our services are tailored to meet the needs of various industries including e-commerce, healthcare, finance, education, and more. Regardless of your industry, we can provide customized solutions to suit your specific requirements.</strong> 
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        3. How experienced is your team?
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>Our team comprises highly skilled professionals with extensive experience in database management, web development, and design. We have successfully delivered projects for clients across different sectors, ensuring top-notch quality and reliability.</strong> 
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+
+
+
+  <!-- footer -->
+  <div class="footer jumbotron jumbotron-fluid text-center  p-2">
+
+    <nav class="navbar navbar-expand-lg bg-primary bg-gradient text-white">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="footer-collapse collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active text-white" aria-current="page" href="index-en.html">Home</a>
+            <a class="nav-link text-white" href="services/services.html">Services</a>
+            <a class="nav-link text-white" href="portfolio.html">Portfolio</a>
+            <a class="nav-link text-white" href="blog.html">Blog</a>
+            <a class="nav-link text-white" href="#">Job Listings</a>
+            <a class="nav-link text-white" href="faq.html">FAQ</a>
+            <a class="nav-link text-white" href="about-us/about-us.html">About Us</a>
+
+
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- ----------------------------------- -->
+    <div class="container ">
+      <section>
+        <p>&copy; 2024 Awesome Code Crafter Hub. All rights reserved. </p>
+      </section>
+      <section>
+        <a href="https://www.facebook.com/" target="_blank"><img src="../../images/facebook.svg"
+            alt="black and white Facebook logo" class="pr-4">&nbsp;</a>
+        <a href="https://www.linkedin.com/" target="_blank"><img src="../../images/linkedin.svg"
+            alt="black and white Facebook logo" class="pr-4">&nbsp;</a>
+        <a href="https://instagram.com/" target="_blank"><img src="../../images/instagram.svg"
+            alt="black and white Twitter logo" class="pr-4">&nbsp;</a>
+        <a href="https://twitter.com/" target="_blank"><img src="../../images/twitter-x.svg"
+            alt="black and white Twitter logo" class="pr-4">&nbsp;</a>
+      </section>
+    </div>
+    <button type="button" class="btn btn-primary">Contact Us</button>
+  </div>
+
+
+  <!-- optional javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

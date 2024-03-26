@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<!-- 
+Class: WEBSITE DESIGN - 420-WB4-AB
+Assignment: Final Project
+
+Team 4
+    Craig Collins (1038789)
+    James Fallouh (6171620)
+    SeyedehFatemeh Fekribaygi (6284424)
+
+    Current Date: TBD
+    Filename: index.html
+
+    Purpose: This a website homepage.
+-->
+
+<html lang="en">
+
+<head>
+  <!-- Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="bootstrap template">
+
+  <!-- Favicon -->
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../styles/custom.css">
+
+  <!-- Custom SCSS -->
+  <!--<link rel="stylesheet" href="styles/custom.css">-->
+
+  <title lang="en">feedback </title>
+  <!--<title lang="en">Bootstrap Template</title>-->
+  <!-- optional javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const redirectButton = document.getElementById('redirectButton');
+
+      redirectButton.addEventListener('click', function () {
+        // Redirect to another page
+        window.location.href = "Survey2.html"
+      });
+    });
+
+    function handleSubmit() {
+      const form_val_1 = document.getElementById('form-val-1').value;
+      localStorage.setItem('form_val_1', form_val_1);
+
+      const form_val_2 = document.getElementById('form-val-2').value;
+      localStorage.setItem('form_val_2', form_val_2);
+
+      const form_val_3 = document.getElementById('form-val-3').value;
+      localStorage.setItem('form_val_3', form_val_3);
+
+      const form_val_4 = document.getElementById('form-val-4').value;
+      localStorage.setItem('form_val_4', form_val_4);
+
+      // Removed unnecessary return statement
+    }
+
+    window.addEventListener('load', () => {
+      // Get parameters from URL
+      const params = (new URL(document.location)).searchParams;
+
+      // Get values from query parameters or local storage for form_val_1
+      const form_val_1 = params.get('form_val_1');
+      const storedName1 = localStorage.getItem('form_val_1');
+      const nameToShow1 = form_val_1 || storedName1 || "Unknown";
+      document.getElementById('form-val-1').value = nameToShow1;
+
+      // Get values from query parameters or local storage for form_val_2
+      const form_val_2 = params.get('form_val_2');
+      const storedName2 = localStorage.getItem('form_val_2');
+      const nameToShow2 = form_val_2 || storedName2 || "Unknown";
+      document.getElementById('form-val-2').value = nameToShow2;
+
+      // Get values from query parameters or local storage for form_val_3
+      const form_val_3 = params.get('form_val_3');
+      const storedName3 = localStorage.getItem('form_val_3');
+      const nameToShow3 = form_val_3 || storedName3 || "Unknown";
+      document.getElementById('form-val-3').value = nameToShow3;
+
+      // Get values from query parameters or local storage for form_val_4
+      const form_val_4 = params.get('form_val_4');
+      const storedName4 = localStorage.getItem('form_val_4');
+      const nameToShow4 = form_val_4 || storedName4 || "Unknown";
+      document.getElementById('form-val-4').value = nameToShow4;
+    });
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+</head>
+
+<body>
+
+  <!-- bootstrap header / navigation bar -->
+  <nav class="navbar navbar-expand-lg bg-primary bg-gradient text-white">
+    <div class="container-fluid">
+      <img class="navbar-brand rounded rounded-4" alt="Awesome code crafter logo"
+        src="../../Vista-Logos-Blue/logo-png.png" height="100" width="100">
+      <!--  <a class="navbar-brand" href="#">Navbar</a>   -->
+
+      <!--<button class="btn  btn-secondary " type="submit">Search</button>-->
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- HOME PAGE -->
+          <li class="nav-item ">
+            <a class="nav-link active text-white" aria-current="page" href="../../index-en.html">Home</a>
+          </li>
+
+          <!-- Service Page-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="services/services.html" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu bg-primary bg-gradient text-white">
+              <li><a class="dropdown-item text-white" href="services/services.html">Services</a>
+              </li>
+              <li><a class="dropdown-item text-white" href="services/programming.html">Programming</a>
+              </li>
+              <li><a class="dropdown-item text-white" href="services/web-development.html">Web
+                  Development</a></li>
+              <!-- <li><hr class="dropdown-divider"></li>-->
+              <li><a class="dropdown-item text-white" href="services/databases.html">Databases</a></li>
+              <li><a class="dropdown-item text-white" href="services/website-design.html">Website
+                  Design</a></li>
+            </ul>
+          </li>
+          <!-- portfolio-->
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="portfolio.html">Portfolio</a>
+          </li>
+          <!--Blog-->
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="blog.html">Blog</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="about-us/about-us.html" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              About Us
+            </a>
+            <ul class="dropdown-menu bg-primary bg-gradient ">
+              <li><a class="dropdown-item text-white" href="about-us/about-us.html">About Us</a></li>
+              <li><a class="dropdown-item text-white" href="about-us/craig-collins.html">Craig
+                  Collins</a></li>
+              <li><a class="dropdown-item text-white" href="about-us/james-fallouh.html">James
+                  Fallouh</a></li>
+              <!-- <li><hr class="dropdown-divider"></li> -->
+              <li><a class="dropdown-item text-white" href="about-us/fatemeh-fekribaygi.html">SeyedehFatemeh
+                  Fekribaygi</a></li>
+            </ul>
+          </li>
+          <!--Contact Us-->
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="contact-us.html">Contact
+              Us</a>
+          </li>
+
+        </ul>
+        <form class="d-flex" role="search">
+          <input id="NavSearch" name="NavSearch" class="form-control me-2" type="search" placeholder="Search"
+            aria-label="Search">
+          <a href="../francais/contactez-nous.html" class="text-white">Français</a>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!-- navbar links -->
+
+  <!-- bootstrap jumbotron -->
+
+  <!-- header and hero image -->
+  <header class="visually-hidden">
+    <h1 class="text-white">Contact Us</h1>
+  </header>
+  <!-- main-->
+  <main id="Ask-public-main" class="container"
+    style="display: flex; flex-direction: column;  align-items: center; gap:3rem; justify-content: center;">
+
+    <div class="text-center" style="margin: 1rem;">
+      <div>
+        <h2 class="h2" style="font-family: fantasy;">Thank you for participating in our Survey</h2>
+      </div>
+    </div>
+    <div class="text-center" style="margin: 1rem;">
+      <div>
+        <h3 class="h3" style="font-family: fantasy;">How would you rate:</h3>
+      </div>
+
+      <!-- form line-->
+    </div>
+    <div class="text-center" style="border: 0.1rem solid darkgray; padding: 1rem;">
+      <label class="form-label text-center h4" for="form-val-1" style="font-family: fantasy;">The content of our
+        website:</label>
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        <img src="../../images/emoji-frown.svg" title="frown" alt="frown" height="50">
+        <input id="form-val-1" class="form-range bg-gradient " style=" margin:1rem; background-color: rgb(233, 230, 230);
+          animation: over-and-back 10s alternate 1003;
+          animation-delay: 4s;" type="range"  name="cowbell" min="0" max="100" value="90" step="10" >
+        <img src="../../images/emoji-smile.svg" title="smile" alt="smile" height="50">
+      </div>
+
+    </div>
+    <!--End of form line-->
+
+
+
+    <!-- form line-->
+
+    <div class="text-center" style="border: 0.1rem solid darkgray; padding: 1rem;">
+      <label class="form-label text-center h4" for="form-val-2" style="font-family: fantasy;">The user expierience of our
+        website:</label>
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        <img src="../../images/emoji-frown.svg" title="frown" alt="frown" height="50">
+        <input id="form-val-2" class="form-range bg-gradient " style=" margin:1rem; background-color: rgb(233, 230, 230);
+      animation: over-and-back 10s alternate 1003;
+      animation-delay: 4s;" type="range"  name="cowbell13" min="0" max="100" value="90" step="10" >
+        <img src="../../images/emoji-smile.svg" title="smile" alt="smile" height="50">
+      </div>
+
+    </div>
+    <!--End of form line-->
+
+
+
+
+    <!-- form line-->
+    
+    <div class="text-center" style="border: 0.1rem solid darkgray; padding: 1rem;">
+      <label class="form-label text-center h4" for="form-val-3" style="font-family: fantasy;">The prices displayed on our
+        website:</label>
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        <img src="../../images/emoji-frown.svg" title="frown" alt="frown" height="50">
+        <input id="form-val-3" class="form-range bg-gradient " style=" margin:1rem; background-color: rgb(233, 230, 230);
+    animation: over-and-back 10s alternate 1003;
+    animation-delay: 4s;" type="range"  name="cowbell4" min="0" max="100" value="90" step="10" >
+        <img src="../../images/emoji-smile.svg" title="smile" alt="smile" height="50">
+      </div>
+
+    </div>
+    <!--End of form line-->
+
+
+    <!-- form line-->
+    
+    <div class="text-center" style="border: 0.1rem solid darkgray; padding: 1rem;">
+      <label class="form-label text-center h4" for="form-val-4" style="font-family: fantasy;">The style of our
+        website:</label>
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        <img src="../../images/emoji-frown.svg" title="frown" alt="frown" height="50">
+        <input id="form-val-4" class="form-range bg-gradient " style=" margin:1rem; background-color: rgb(233, 230, 230);
+  animation: over-and-back 10s alternate 1003;
+  animation-delay: 4s;" type="range"  name="cowbell15" min="0" max="100" value="90" step="10" >
+        <img src="../../images/emoji-smile.svg" title="smile" alt="smile" height="50">
+      </div>
+
+    </div>
+    <!--End of form line-->
+
+    <div style="display:flex; justify-content:center; row-gap:0.1rem;">
+      <button type="button" id="redirectButton" class="btn btn-primary btn-block " value="Submit request"
+        onclick="handleSubmit()">Next</button>
+      <!--<button type="button" id="no_button" 
+    class="btn btn-secondary btn-block " value="Submit request">No</button>-->
+    </div>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="footer bg-primary py-4 mt-5">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active text-white" aria-current="page" href="../../index-en.html">Home</a>
+              <a class="nav-link text-white" href="services/services.html">Services</a>
+              <a class="nav-link text-white" href="portfolio.html">Portfolio</a>
+              <a class="nav-link text-white" href="blog.html">Blog</a>
+              <a class="nav-link text-white" href="about-us/about-us.html">About Us</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="row justify-content-center mt-3">
+        <div class="col-md-auto">
+          <a href="https://www.facebook.com/" target="_blank"><img src="../../images/facebook.svg"
+              alt="black and white Facebook logo" class="pr-4">&nbsp;</a>
+          <a href="https://www.linkedin.com/" target="_blank"><img src="../../images/linkedin.svg"
+              alt="black and white Facebook logo" class="pr-4">&nbsp;</a>
+          <a href="https://instagram.com/" target="_blank"><img src="../../images/instagram.svg"
+              alt="black and white Twitter logo" class="pr-4">&nbsp;</a>
+          <a href="https://twitter.com/" target="_blank"><img src="../../images/twitter-x.svg"
+              alt="black and white Twitter logo" class="pr-4">&nbsp;</a>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-3">
+        <div class="col-md-auto text-white text-center">
+          <p>&copy; 2024 Awesome Code Crafter Hub. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- this snippet enables the user to select the first dropdown item as a link -->
+
+  <!-- 
+  <script>
+    var servicesLink = document.querySelector('.nav-item.services-dropdown .dropdown-toggle'); /* selects the nav-link anchor element in the dropdown menu */
+    servicesLink.addEventListener('click', function (event) { /* listens for the user to click */
+      event.preventDefault(); /* prevents the dropdown from expanding */
+      window.location.href = "webpages/english/services/services.html"; /* redirects to services pages */
+    });
+  </script>
+
+  
+  <script>
+    var aboutUsLink = document.querySelector('.nav-item.about-us-dropdown .dropdown-toggle');
+    aboutUsLink.addEventListener('click', function (event) {
+      event.preventDefault();
+      window.location.href = "webpages/english/about-us/about-us.html";
+    });
+  </script> -->
+
+
+</body>
+
+</html>
