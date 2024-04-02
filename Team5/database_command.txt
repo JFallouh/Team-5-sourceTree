@@ -1,0 +1,5 @@
+use codecrafter
+db.users.insertMany([{_id:1,email:"james@codecrafter.com",password:"codecrafter"},{_id:2,email:"christ@codecrafter.com",password:"codecrafter"},{_id:3,email:"evan@codecrafter.com",password:"codecrafter"}])
+
+
+db.candidates.insertOne({firstName:"John",lastName:"Smith",phone:123456789,email:"john@gmail.com",seekingPosition:"Python Developer",experience:1});

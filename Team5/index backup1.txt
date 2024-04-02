@@ -13,7 +13,6 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname ,"public")));
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json()); // Parse JSON bodies
 
 // MongoDB URI
 const uri = 'mongodb://localhost:27017';
@@ -21,17 +20,17 @@ const client = new MongoClient(uri);
 
 // Connect to MongoDB
 client.connect();
-
 // Route for serving the index.html page
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+  });
 
 // Route for handling form submission
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
+    
     const db = client.db('codeCrafter');
     const usersCollection = db.collection('users');
 
@@ -42,7 +41,9 @@ app.post('/login', async (req, res) => {
       res.redirect('/main.html');
     } else {
       // Authentication failed, render login page with error message
+      //res.sendFile(path.join(__dirname, 'public/index.html'));
       res.redirect('/?authFailed=true');
+    
     }
   } catch (error) {
     console.error('Error:', error);
@@ -50,7 +51,8 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// Route for adding a candidate
+
+ // Route for adding a candidate
 app.post('/main/addCandidate', async (req, res) => {
     // Extract candidate data from request body
     const { firstName, lastName, phone, email, seekingPosition, experience } = req.body;
@@ -75,6 +77,7 @@ app.post('/main/addCandidate', async (req, res) => {
       res.status(500).json({ success: false, message: 'Failed to add candidate' });
     }
   });
+  
 
 // Route for retrieving candidates
 app.get('/main/getCandidates', async (req, res) => {
@@ -91,8 +94,8 @@ app.get('/main/getCandidates', async (req, res) => {
         res.status(500).json({ success: false, message: 'Failed to retrieve candidates' });
     }
 });
-
 // Start server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+

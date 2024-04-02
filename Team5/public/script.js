@@ -1,0 +1,77 @@
+ 
+ /*
+ // Retrieve username from localStorage
+    const username = localStorage.getItem('username');
+    if (username) {
+      document.getElementById('username').textContent = username;
+    }
+*/
+    // Handle form submission to add a candidate
+    document.getElementById('addCandidateForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const candidateFirstName = document.getElementById('candidateFirstName').value;
+      const candidateLastName = document.getElementById('candidateLastName').value;
+      const candidatePhone = document.getElementById('candidatePhone').value;
+      const candidateEmail = document.getElementById('candidateEmail').value;
+      const candidateSeekingPosition = document.getElementById('candidateSeekingPosition').value;
+      const candidateExperience = document.getElementById('candidateExperience').value;
+
+      try {
+        // Send request to server to add candidate
+        const response = await fetch('/main/addCandidate', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ 
+            firstName: candidateFirstName,
+            lastName: candidateLastName,
+            phone: candidatePhone,
+            email: candidateEmail,
+            seekingPosition: candidateSeekingPosition,
+            experience: candidateExperience
+          })
+        });
+
+        // Process response
+        const data = await response.json();
+        if (data.success) {
+          
+          // Candidate added successfully, update UI if needed
+          console.log('Candidate added:', data.candidate);
+          displayCandidateList(); // Refresh the candidate list
+        } else {
+          console.error('Failed to add candidate:', data.message);
+          // Handle error (e.g., display error message)
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        // Handle network errors
+      }
+    });
+
+    // Function to display candidate list
+    async function displayCandidateList() {
+      try {
+        // Fetch candidate list from server
+        const response = await fetch('/main/getCandidates');
+        const data = await response.json();
+
+        // Update UI with candidate list
+        const candidateList = document.getElementById('candidateList');
+        candidateList.innerHTML = ''; // Clear previous list
+
+        data.forEach(candidate => {
+          const listItem = document.createElement('li');
+          listItem.classList.add('list-group-item');
+          listItem.textContent = `${candidate.firstName} ${candidate.lastName} - ${candidate.seekingPosition}`;
+          candidateList.appendChild(listItem);
+        });
+      } catch (error) {
+        console.error('Error:', error);
+        // Handle errors
+      }
+    }
+
+    // Call the function to display candidate list
+    displayCandidateList();
