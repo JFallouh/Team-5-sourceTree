@@ -1,11 +1,13 @@
-// script.js
-
-// Function to close the modal
-function closeModal() {
-  // Close the modal using Bootstrap's modal method
-  var modal = new bootstrap.Modal(document.getElementById('addCandidateModal'));
-  modal.hide();
-}
+ 
+ /*
+ // Retrieve username from localStorage
+    const username = localStorage.getItem('username');
+    if (username) {
+      document.getElementById('username').textContent = username;
+    }
+*/
+    // Handle form submission to add a candidate
+   // script.js
 
 // Handle form submission to add a candidate
 document.getElementById('addCandidateForm').addEventListener('submit', async (e) => {
@@ -41,7 +43,6 @@ document.getElementById('addCandidateForm').addEventListener('submit', async (e)
       // Candidate added successfully, update UI if needed
       console.log('Candidate added:', data.candidate);
       displayCandidateList(); // Refresh the candidate list
-      closeModal(); // Close the modal
     } else {
       console.error('Failed to add candidate:', data.message);
       // Handle error (e.g., display error message)
@@ -64,16 +65,10 @@ async function displayCandidateList() {
     candidateList.innerHTML = ''; // Clear previous list
 
     data.forEach(candidate => {
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${candidate.firstName}</td>
-        <td>${candidate.lastName}</td>
-        <td>${candidate.phone}</td>
-        <td>${candidate.email}</td>
-        <td>${candidate.seekingPosition}</td>
-        <td>${candidate.experience}</td>
-      `;
-      candidateList.appendChild(row);
+      const listItem = document.createElement('li');
+      listItem.classList.add('list-group-item');
+      listItem.textContent = `${candidate.firstName} ${candidate.lastName} - ${candidate.seekingPosition}`;
+      candidateList.appendChild(listItem);
     });
   } catch (error) {
     console.error('Error:', error);
@@ -83,24 +78,3 @@ async function displayCandidateList() {
 
 // Call the function to display candidate list
 displayCandidateList();
-
-// Function to filter candidates based on search input
-function filterCandidates(searchInput) {
-  const candidateList = document.getElementById('candidateList');
-  const candidates = candidateList.getElementsByTagName('tr');
-
-  for (let candidate of candidates) {
-    const fullName = candidate.getElementsByTagName('td')[0].innerText.toLowerCase() + ' ' + candidate.getElementsByTagName('td')[1].innerText.toLowerCase();
-    if (fullName.includes(searchInput.toLowerCase())) {
-      candidate.style.display = '';
-    } else {
-      candidate.style.display = 'none';
-    }
-  }
-}
-
-// Event listener for search input
-document.getElementById('searchInput').addEventListener('input', function(event) {
-  filterCandidates(event.target.value);
-});
-
