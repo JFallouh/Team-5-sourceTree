@@ -3,4 +3,79 @@ db.users.insertMany([{_id:1,email:"james@codecrafter.com",password:"codecrafter"
 
 
 db.candidates.insertOne({firstName:"John",lastName:"Smith",phone:123456789,email:"john@gmail.com",seekingPosition:"Python Developer",experience:1});
-db.employees.insertMany([{_id:1,firstname:"James",lastname:"smith",email:"james@codecrafter.com"},{_id:2,firstname:"Christ",lastname:"smith",email:"christ@codecrafter.com"},{_id:3,firstname:"Evan",lastname:"smith",email:"evan@codecrafter.com"}])
+db.employees.insertOne({_id:1,firstname:"James",lastname:"smith",email:"james@codecrafter.com"},{_id:2,firstname:"Christ",lastname:"smith",email:"christ@codecrafter.com"},{_id:3,firstname:"Evan",lastname:"smith",email:"evan@codecrafter.com"})
+
+
+
+To start mongodb
+mongod --dbpath ~/data/db --logpath ~/data/log/mongodb/mongo.log --fork
+
+
+
+Verify that MongoDB has started successfully.
+ps aux | grep -v grep | grep mongod
+
+To use certain database
+Use database_name
+
+To show all available database
+Show dbs
+
+To know which database you are in
+Db
+
+To create and insert inside a collection
+db.products.insertOne({_id:1, name:"Pen",price:1.20})
+
+To see all collection:
+Show collections
+
+https://www.mongodb.com/docs/manual/reference/collation/#std-label-collation
+
+
+To select all:
+db.products.find()
+
+To search for a certain object:
+db.products.find({name:"Pencil"})
+
+
+db.products.find({price:{$gt:1}})
+
+db.products.find({_id:1},{name:1})
+
+db.products.find({_id:1},{name:1,_id:0})
+
+Update
+db.products.updateOne({_id:1},{$set:{stock:32}})
+
+Relationship in Mongodb:
+
+Note:
+If you have closed down Terminal or Hyper and forgot to close down your mongod connection, you might get an error that says:
+2018-11-04T16:17:53.473+1300 E STORAGE  [initandlisten] Failed to set up listener: SocketException: Address already in use
+2018-11-04T16:17:53.474+1300 I CONTROL  [initandlisten] now exiting
+2018-11-04T16:17:53.474+1300 I CONTROL  [initandlisten] shutting down with code:48
+In this case, you'll have to follow these steps to manually shut down the mongod process:
+1. Open up a fresh Hyper Terminal tab
+2. Paste the command below into Hyper:
+sudo pkill -f mongod
+3. Now enter the password that you use to log on to the Mac.
+4. Open a new Hyper terminal, you should now be able to run the mongod command again.
+Node js with mongo
+	1. drivers
+	2. Mangoose
+
+
+To delete certain database:
+	1. First switch to that database
+	2. Use  database_name
+	3. Then to delete
+	4. db.dropDatabase()
+
+To use mongosse:
+Npm I mongoose
+
+
+
+

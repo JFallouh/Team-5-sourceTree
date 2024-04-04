@@ -1,15 +1,45 @@
   Team 5:
   James FALLOUH 6171620
-  Evan Sharp
+  Evan Sharp 1320206
   Christopher White
 
 
 
-  1.	The project is for codecrafter website so that it will be used to help both people looking for a job and employer to find what they are looking for
+1.	The project is for codecrafter website so that it will be used to help both people looking for a job and employer to find what they are looking for
 2.	For the current version of the project both candidates and employer must contact the codecrafter employee to register a candidate or to find a canidate
 3.	Mangodb community server has been installed and used as server
 4.	Compass is used to provide graphical interface
 5.	Concept used in this project node.js so that both back end and front end running javascript express which is the frame work middle ware (parse body ) intercept and process request ejs embedded java script rendered dynamic html from the server Winston to log error nodemon is utility to automatically restart the server API application programming interface that is protocol and method that define how application communicate between each other or between the front and back end 
 6.	Mongodb nonrelational database which has collection like to tables in relational documents are like rows and rows has fields which equal to columns in the relational database.
+7.  Mongoose to connect mongodb to nodejs another way to connect to mongodb without mongoose is to use the driver
+8. useful command:
+            npm init -y
+            npm i
+            or npm install to install all the dependencies in case the file was received from someone else
+            npm i express
+            npm i Mongodb
+            sudo npm i winston
+            node index.js
+            nodemon index.js
+            npm i mongoose
+            npm i ejs
+            npm i -g nodemon   -g is to install globally
 
 
+9. note: install the extention EJS language support for visual studio to be able to run embedded java script
+        in order to use the import command, add "type":"module" to the package.json
+
+
+    Steps to creating an Express server
+    1. create directory 
+    2. create index.js file
+    3. initialise Npm using the command npm init -y
+    4. install the express package
+    5. wirte Server application in index.js
+    6. start the server 
+
+
+    To test the database:
+    db.users.insertOne({_id:4,email:"adam@codecrafter.com",password:"codecrafter"})
+    db.employees.insertOne({_id:4,firstname:"Adam",lastname:"smith",email:"adam@codecrafter.com"})
+    
