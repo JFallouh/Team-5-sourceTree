@@ -3,3 +3,4 @@ db.users.insertMany([{_id:1,email:"james@codecrafter.com",password:"codecrafter"
 
 
 db.candidates.insertOne({firstName:"John",lastName:"Smith",phone:123456789,email:"john@gmail.com",seekingPosition:"Python Developer",experience:1});
+db.employees.insertMany([{_id:1,firstname:"James",lastname:"smith",email:"james@codecrafter.com"},{_id:2,firstname:"Christ",lastname:"smith",email:"christ@codecrafter.com"},{_id:3,firstname:"Evan",lastname:"smith",email:"evan@codecrafter.com"}])

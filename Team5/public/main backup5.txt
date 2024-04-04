@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+  <style>
+    /* Custom CSS styles */
+    .container .search-bar {
+      margin-top: 50px;
+    }
+    .candidate-list {
+      margin-top: 20px;
+    }
+  </style>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body >
+  
+  <div class="container  text-primary">
+    <h1 >Welcome to your Dashboard, <span id="username"></span></h1>
+    <button class="btn btn-primary" id="addCandidateBtn" data-bs-toggle="modal" data-bs-target="#addCandidateModal">Add Candidate</button>
+    
+    <div class="search-bar mb-3">
+      <input type="text" class="form-control" id="searchInput" placeholder="Search candidates...">
+    </div>
+    
+    <div class="candidate-list">
+      <h2>Candidate List</h2>
+      <table class="table  table-striped-columns">
+        <thead>
+          <tr>
+            <th class="table-success" scope="col">First Name</th>
+            <th class="table-success" scope="col">Last Name</th>
+            <th class="table-success" scope="col">Phone</th>
+            <th class="table-success" scope="col">Email</th>
+            <th class="table-success" scope="col">Seeking Position</th>
+            <th class="table-success" scope="col">Year of Experience</th>
+          </tr>
+        </thead>
+        <tbody id="candidateList">
+          <!-- Candidates will be displayed here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal to add candidate -->
+  <div class="modal fade" id="addCandidateModal" tabindex="-1" aria-labelledby="addCandidateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addCandidateModalLabel">Add Candidate</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Form to add candidate will be here -->
+          <form id="addCandidateForm">
+            <div class="mb-3">
+              <label for="candidateFirstName" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="candidateFirstName" required>
+            </div>
+            <div class="mb-3">
+              <label for="candidateLastName" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="candidateLastName" required>
+            </div>
+            <div class="mb-3">
+              <label for="candidatePhone" class="form-label">Phone</label>
+              <input type="text" class="form-control" id="candidatePhone" required>
+            </div>
+            <div class="mb-3">
+              <label for="candidateEmail" class="form-label">Email</label>
+              <input type="text" class="form-control" id="candidateEmail" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="candidateSeekingPosition" class="form-label">Which position are you seeking</label>
+              <input type="text" class="form-control" id="candidateSeekingPosition" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="candidateExperience" class="form-label">Year of Experience</label>
+              <input type="text" class="form-control" id="candidateExperience" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" id="submitCandidateBtn">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

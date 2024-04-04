@@ -1,3 +1,12 @@
+<!--
+  Team 5:
+  James FALLOUH 6171620
+  Evan Sharp
+  Christopher White
+
+  Codecrater website project
+  Date April, 04th 2024
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,13 +24,13 @@
       margin-top: 20px;
     }
   </style>
-  <script src="script.js" defer></script>
+ 
+
   <link rel="stylesheet" href="main.css">
 </head>
 <body >
-  
   <div class="container  text-primary">
-    <h1 >Welcome to your Dashboard, <span id="username"></span></h1>
+    <h1>Welcome to your Dashboard, <span id="username"><%= firstName %></span></h1>
     <button class="btn btn-primary" id="addCandidateBtn" data-bs-toggle="modal" data-bs-target="#addCandidateModal">Add Candidate</button>
     
     <div class="search-bar mb-3">
@@ -48,52 +57,138 @@
     </div>
   </div>
 
-  <!-- Modal to add candidate -->
-  <div class="modal fade" id="addCandidateModal" tabindex="-1" aria-labelledby="addCandidateModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addCandidateModalLabel">Add Candidate</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <!-- Form to add candidate will be here -->
-          <form id="addCandidateForm">
-            <div class="mb-3">
-              <label for="candidateFirstName" class="form-label">First Name</label>
-              <input type="text" class="form-control" id="candidateFirstName" required>
-            </div>
-            <div class="mb-3">
-              <label for="candidateLastName" class="form-label">Last Name</label>
-              <input type="text" class="form-control" id="candidateLastName" required>
-            </div>
-            <div class="mb-3">
-              <label for="candidatePhone" class="form-label">Phone</label>
-              <input type="text" class="form-control" id="candidatePhone" required>
-            </div>
-            <div class="mb-3">
-              <label for="candidateEmail" class="form-label">Email</label>
-              <input type="text" class="form-control" id="candidateEmail" required>
-            </div>
-
-            <div class="mb-3">
-              <label for="candidateSeekingPosition" class="form-label">Which position are you seeking</label>
-              <input type="text" class="form-control" id="candidateSeekingPosition" required>
-            </div>
-
-            <div class="mb-3">
-              <label for="candidateExperience" class="form-label">Year of Experience</label>
-              <input type="text" class="form-control" id="candidateExperience" required>
-            </div>
-            
-            <button type="submit" class="btn btn-primary" id="submitCandidateBtn">Submit</button>
-          </form>
-        </div>
+ <!-- Modal to add candidate -->
+<div class="modal fade" id="addCandidateModal" tabindex="-1" aria-labelledby="addCandidateModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addCandidateModalLabel">Add Candidate</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Form to add candidate will be here -->
+        <form id="addCandidateForm">
+          <div class="mb-3">
+            <label for="candidateFirstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="candidateFirstName" required>
+          </div>
+          <div class="mb-3">
+            <label for="candidateLastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="candidateLastName" required>
+          </div>
+          <div class="mb-3">
+            <label for="candidatePhone" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="candidatePhone" required>
+          </div>
+          <div class="mb-3">
+            <label for="candidateEmail" class="form-label">Email</label>
+            <input type="text" class="form-control" id="candidateEmail" required>
+          </div>
+          <div class="mb-3">
+            <label for="candidateSeekingPosition" class="form-label">Which position are you seeking</label>
+            <input type="text" class="form-control" id="candidateSeekingPosition" required>
+          </div>
+          <div class="mb-3">
+            <label for="candidateExperience" class="form-label">Year of Experience</label>
+            <input type="text" class="form-control" id="candidateExperience" required>
+          </div>
+          <!-- Other form fields -->
+          <button type="submit" class="btn btn-primary" id="submitCandidateBtn">Submit</button>
+        </form>
       </div>
     </div>
   </div>
+</div>
+
 
   <!-- JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const addCandidateForm = document.getElementById('addCandidateForm');
+    const searchInput = document.getElementById('searchInput');
+    const candidateList = document.getElementById('candidateList');
+    const usernameElement = document.getElementById('username');
+
+    // Function to close the modal
+    function closeModal() {
+        const modal = new bootstrap.Modal(document.getElementById('addCandidateModal'));
+        modal.hide();
+    }
+
+    // Function to display candidate list
+    async function displayCandidateList() {
+        try {
+            const response = await fetch('/main/getCandidates');
+            const candidates = await response.json();
+
+            candidateList.innerHTML = ''; // Clear previous list
+
+            candidates.forEach(candidate => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${candidate.firstName}</td>
+                    <td>${candidate.lastName}</td>
+                    <td>${candidate.phone}</td>
+                    <td>${candidate.email}</td>
+                    <td>${candidate.seekingPosition}</td>
+                    <td>${candidate.experience}</td>
+                `;
+                candidateList.appendChild(row);
+            });
+        } catch (error) {
+            console.error('Error fetching candidates:', error);
+        }
+    }
+
+    // Event listener for form submission to add a candidate
+    addCandidateForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(addCandidateForm);
+        const candidateData = Object.fromEntries(formData.entries());
+
+        try {
+            const response = await fetch('/main/addCandidate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(candidateData)
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                console.log('Candidate added:', data.candidate);
+                displayCandidateList(); // Refresh the candidate list
+                closeModal(); // Close the modal
+            } else {
+                console.error('Failed to add candidate:', data.message);
+            }
+        } catch (error) {
+            console.error('Error adding candidate:', error);
+        }
+    });
+
+    // Event listener for search input
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        const candidates = candidateList.querySelectorAll('tr');
+
+        candidates.forEach(candidate => {
+            const fullName = `${candidate.cells[0].innerText} ${candidate.cells[1].innerText}`.toLowerCase();
+            candidate.style.display = fullName.includes(searchTerm) ? '' : 'none';
+        });
+    });
+
+    // Retrieve the first name from the server-side rendering
+    const firstName = '<%= firstName %>';
+    usernameElement.textContent = firstName ? firstName : 'User';
+
+    // Initial display of candidate list
+    displayCandidateList();
+});
+
+  </script>
 </body>
 </html>
